@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Add a component scan for Spring stereotypes -->
+	<context:component-scan base-package="com.x.biz" />
+	<import resource="classpath*:**/*.spring.xml" />
+	
+	<!-- ====================================================================================== -->
+	<!-- IMPORTANT: This is the entry point that will bootstrap the Application Infrastructure. -->
+	<import resource="classpath*:com/x/service/infra/application/handler.spring.xml" />
+	<!-- ====================================================================================== -->
+
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="*">genericRequestHandler</prop>
+				<prop key="/health_check">healthCheck</prop>
+				<prop key="/executeTestSuite">executeTestSuite</prop>
+				<prop key="/getResultsXml">executeTestSuite</prop>
+				<prop key="/getResultsZip">executeTestSuite</prop>
+			</props>
+		</property>
+	</bean>
+	<bean name="healthCheck" class="com.x.infra.utilities.healthcheck.HealthCheck" />
+	<bean name="executeTestSuite" class="com.x.infra.utilities.web.TestNGController" />
+</beans>

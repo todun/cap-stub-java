@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5"
+    xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<display-name>My X.commerce Capability</display-name>
+
+	<servlet>
+		<!-- This servlet will route incoming request to the X.commerce Application Infra handler -->
+    	<servlet-name>dispatcher</servlet-name>
+	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    	<init-param>
+        	<param-name>contextConfigLocation</param-name>
+        	<param-value>classpath*:/dispatcher-servlet.xml</param-value>
+	    </init-param>
+    	<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<!-- 
+			This servlet can be used to test manually start a workflow from a browser. 
+			Disable me before deploying to your production environment.
+		-->
+		<servlet-name>kickOffServlet</servlet-name>
+		<servlet-class>com.x.biz.servlet.KickOffServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<!-- 
+			This servlet can be used to test manually start a workflow from a browser. 
+			Disable me before deploying to your production environment.
+		-->
+		<servlet-name>kickOffServlet</servlet-name>
+		<url-pattern>/kickoff</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	    <servlet-name>dispatcher</servlet-name>
+	    <url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
