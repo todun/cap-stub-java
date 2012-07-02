@@ -82,6 +82,10 @@
 			<groupId>com.x.infra.test</groupId>
 			<artifactId>yati</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.x.infra</groupId>
+			<artifactId>appInfra-data-mongo</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
