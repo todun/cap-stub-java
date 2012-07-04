@@ -12,7 +12,7 @@
 		<property name="connectors">
 			<list>
 				<bean id="Connector" class="org.mortbay.jetty.nio.SelectChannelConnector">
-					<property name="port" value="8072" />
+					<property name="port" value="8073" />
 				</bean>
 			</list>
 		</property>
