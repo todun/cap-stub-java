@@ -19,6 +19,17 @@
 			<name>x.commerce</name>
 			<url>http://50.56.54.89:8080/nexus/content/groups/public</url>
 		</repository>
+		<repository>
+			<releases>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+			<id>googlecode</id>
+			<name>google code</name>
+			<url>http://morphia.googlecode.com/svn/mavenrepo/</url>
+		</repository>
 	</repositories>
 	
 	<dependencyManagement>
