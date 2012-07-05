@@ -9,7 +9,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>domain</artifactId>
+	<artifactId>provider-stub-domain</artifactId>
 	<packaging>jar</packaging>
 	<name>Domain</name>
 

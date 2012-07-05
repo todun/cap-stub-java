@@ -9,7 +9,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>service</artifactId>
+	<artifactId>consumer-stub-service</artifactId>
 	<packaging>jar</packaging>
 	<name>Service</name>
 
