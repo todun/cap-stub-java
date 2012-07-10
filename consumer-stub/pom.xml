@@ -58,14 +58,19 @@
 			<dependency>
 				<groupId>com.x.infra</groupId>
 				<artifactId>service-application</artifactId>
-				<version>1.0.2</version>
+				<version>1.0.3</version>
 			</dependency>
 			<dependency>
 				<groupId>com.x.infra</groupId>
 				<artifactId>service-application</artifactId>
-				<version>1.0.2</version>
+				<version>1.0.3</version>
 				<type>test-jar</type>
 			</dependency>
+            <dependency>
+                <groupId>com.x.infra</groupId>
+                <artifactId>appInfra-data-mongo</artifactId>
+                <version>1.0.4</version>
+            </dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -101,11 +106,6 @@
 				<groupId>com.x.infra.test</groupId>
 				<artifactId>yati</artifactId>
 				<version>1.0.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.x.infra</groupId>
-				<artifactId>appInfra-data-mongo</artifactId>
-				<version>1.0.3</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
