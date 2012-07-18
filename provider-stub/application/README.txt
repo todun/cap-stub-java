@@ -8,9 +8,10 @@ implement, you should add an entry for the workflowDefConfig.workflows array.
 - xfabric.properties: environment-specific configuration file that contains properties that are specific to your Fabric interaction,
 such as the Fabric endpoint.
 
-The following are for local development only:
-- Launcher.java: this small class contains the main entry point for you to start your capability locally in your IDE. After you have configured
-the Fabric endpoint, simply run the main function to start an instance of your capability locally.
+- Launcher.java: this small class contains the main entry point for you to start your capability locally in your IDE. After you have 
+configured the Fabric endpoint, simply run the main function to start an instance of your capability locally. (You do not need to 
+start Launcher.java if you deploy your capability to a servlet engine like Tomcat that can communicate with the Fabric on a 
+public interface. If your servlet engine does not run on a public interface, you must use the X.commerce Sync Bridge Client
+to communicate with the Fabric.)
 
-- CapabilityInitializer.java: After you have your capability instance running locally, use this small utility to register it with 
-the Fabric. It uses the properties in xfabric.properties and xmanager.properties to register your capability.
+- TopicInfoUtility.java: You can use this utility to see which topics your capability should create and which ones it should subscribe to
