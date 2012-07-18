@@ -35,23 +35,24 @@ public class KickOffServlet extends HttpServlet {
     	PrintWriter out = resp.getWriter();
         
     	String workflowId = req.getParameter("workflowId");
+    	String role = req.getParameter("role");
     	String tenantPseudonym = req.getParameter("tenantPseudonym");
     	if(StringUtils.isNotBlank(workflowId) && StringUtils.isNotBlank(tenantPseudonym)) {
     		LOG.debug(String.format("WF >>>>>> Starting workflow. Type:%s Tenant:%s", workflowId, tenantPseudonym));
     		String error = null;
     		try {
-    			WorkflowManager.theInstance().startWorkflow(workflowId, tenantPseudonym); 
+    			WorkflowManager.theInstance().startWorkflow(workflowId, role, tenantPseudonym, null); 
             } catch(Exception e) {
             	error = e.getMessage();
             }
-        	out.println(getForm(workflowId, tenantPseudonym, error, (error == null ? "Workflow started" : null)));
+        	out.println(getForm(workflowId, role, tenantPseudonym, error, (error == null ? "Workflow started" : null)));
     	} else {
-    		out.println(getForm(null, null, null, null));
+    		out.println(getForm(null, null, null, null, null));
     	}
     	
     }
     
-    private String getForm(String workflowId, String tenantPseudonym, String error, String message) {
+    private String getForm(String workflowId, String role, String tenantPseudonym, String error, String message) {
     	StringBuilder sb = new StringBuilder();
     	sb.append("<html>");
     	sb.append("<head><title>Kick Off Servlet</title></head>");
@@ -64,6 +65,8 @@ public class KickOffServlet extends HttpServlet {
     	sb.append("<form name=\"kickOffForm\" method=\"POST\">");
     	sb.append("Workflow ID: <input type=\"text\" name=\"workflowId\" size=\"100\" value=\"")
     	  .append((workflowId != null ? workflowId : "")).append("\"><br/>");
+    	sb.append("Role: <input type=\"text\" name=\"role\" size=\"100\" value=\"")
+  	  		.append((role != null ? role : "")).append("\"><br/>");
     	sb.append("Tenant Pseudonym: <input type=\"text\" name=\"tenantPseudonym\" size=\"100\" value=\"")
     	  .append((tenantPseudonym != null ? tenantPseudonym : "")).append("\"><br/>");
     	sb.append("<input type=\"submit\" value=\"Submit\">");

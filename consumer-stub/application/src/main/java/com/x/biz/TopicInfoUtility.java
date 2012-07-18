@@ -17,6 +17,7 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 import com.x.infra.application.workflow.TopicManager;
 import com.x.infra.application.workflow.def.IWorkflowDef;
 import com.x.infra.application.workflow.def.IllegalWfDefException;
+import com.x.infra.application.workflow.def.WorkflowDefKey;
 import com.x.infra.application.workflow.def.avro.WorkflowDefConfig;
 import com.x.infra.application.workflow.def.avro.WorkflowDefinitionManager;
 
@@ -42,11 +43,11 @@ public class TopicInfoUtility {
 		config.setWorkflows(workflowFiles);
 		WorkflowDefinitionManager wfDefManager = WorkflowDefinitionManager.theInstance();
 		wfDefManager.init(config);
-		Map<String, IWorkflowDef> workflows = wfDefManager.getRegisteredWorkflows();
+		Map<WorkflowDefKey, IWorkflowDef> workflows = wfDefManager.getRegisteredWorkflows();
 		Set<String> allTopics = new HashSet<String>();
 		Set<String> subscribedTopics = new HashSet<String>();
-		for(String wfId : workflows.keySet()) {
-			IWorkflowDef wfDef = workflows.get(wfId);
+		for(WorkflowDefKey defKey : workflows.keySet()) {
+			IWorkflowDef wfDef = workflows.get(defKey);
 			 allTopics.addAll(wfDef.getAllTopics());
 			 subscribedTopics.addAll(wfDef.getSubscribedTopics());
 		}
