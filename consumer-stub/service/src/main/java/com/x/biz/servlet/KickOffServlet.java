@@ -67,7 +67,7 @@ public class KickOffServlet extends HttpServlet {
     	  .append((workflowId != null ? workflowId : "")).append("\"><br/>");
     	sb.append("Role: <input type=\"text\" name=\"role\" size=\"100\" value=\"")
   	  		.append((role != null ? role : "")).append("\"><br/>");
-    	sb.append("Tenant Pseudonym: <input type=\"text\" name=\"tenantPseudonym\" size=\"100\" value=\"")
+    	sb.append("Tenant ID: <input type=\"text\" name=\"tenantPseudonym\" size=\"100\" value=\"")
     	  .append((tenantPseudonym != null ? tenantPseudonym : "")).append("\"><br/>");
     	sb.append("<input type=\"submit\" value=\"Submit\">");
     	sb.append("</form>");

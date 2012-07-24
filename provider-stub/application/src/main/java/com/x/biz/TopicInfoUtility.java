@@ -86,7 +86,7 @@ public class TopicInfoUtility {
 		}
 		System.out.println();
 		
-		System.out.println("### TOPICS TO SUBSRIBE TO ###");
+		System.out.println("### TOPICS TO SUBSCRIBE TO ###");
 		for(String topic : subscribedTopicsList) {
 			System.out.println(topic);
 		}
