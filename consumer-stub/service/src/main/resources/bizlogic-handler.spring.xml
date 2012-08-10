@@ -7,6 +7,6 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<!-- NOTE: create a bean for your class to register your callback for each @XTransactionCallback . -->
+	<!-- NOTE: create a bean for your class to register your callback for each @Transaction . -->
 	<!-- <bean id="sampleXFabricEventHandler" class="com.x.biz.SampleXFabricEventHandler" /> -->
 </beans>

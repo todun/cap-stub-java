@@ -14,12 +14,12 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
-import com.x.infra.application.workflow.TopicManager;
 import com.x.infra.application.workflow.def.IWorkflowDef;
 import com.x.infra.application.workflow.def.IllegalWfDefException;
 import com.x.infra.application.workflow.def.WorkflowDefKey;
 import com.x.infra.application.workflow.def.avro.WorkflowDefConfig;
 import com.x.infra.application.workflow.def.avro.WorkflowDefinitionManager;
+import com.x.infra.application.workflow.messenger.TopicManager;
 
 public class TopicInfoUtility {
 	
