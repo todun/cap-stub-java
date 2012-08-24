@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.x.infra.application.workflow.engine.WorkflowManager;
+
+import com.x.infra.application.workflow.WorkflowEngineFactory;
 
 public class KickOffServlet extends HttpServlet {
     public static final String FILE_SEPARATOR = System.getProperty("file.separator");
@@ -41,7 +42,7 @@ public class KickOffServlet extends HttpServlet {
     		LOG.debug(String.format("WF >>>>>> Starting workflow. Type:%s Tenant:%s", workflowId, tenantPseudonym));
     		String error = null;
     		try {
-    			WorkflowManager.theInstance().startWorkflow(workflowId, role, tenantPseudonym, null); 
+    			WorkflowEngineFactory.getWorkflowEngine().startWorkflow(workflowId, role, tenantPseudonym, null); 
             } catch(Exception e) {
             	error = e.getMessage();
             }
@@ -65,9 +66,9 @@ public class KickOffServlet extends HttpServlet {
     	sb.append("<form name=\"kickOffForm\" method=\"POST\">");
     	sb.append("Workflow ID: <input type=\"text\" name=\"workflowId\" size=\"100\" value=\"")
     	  .append((workflowId != null ? workflowId : "")).append("\"><br/>");
-    	sb.append("Role: <input type=\"text\" name=\"role\" size=\"100\" value=\"")
-  	  		.append((role != null ? role : "")).append("\"><br/>");
-    	sb.append("Tenant ID: <input type=\"text\" name=\"tenantPseudonym\" size=\"100\" value=\"")
+    	sb.append("Workflow Role: <input type=\"text\" name=\"role\" size=\"100\" value=\"")
+  	  	  .append((role != null ? role : "")).append("\"><br/>");
+    	sb.append("Tenant Pseudonym: <input type=\"text\" name=\"tenantPseudonym\" size=\"100\" value=\"")
     	  .append((tenantPseudonym != null ? tenantPseudonym : "")).append("\"><br/>");
     	sb.append("<input type=\"submit\" value=\"Submit\">");
     	sb.append("</form>");
